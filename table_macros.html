@@ -1,0 +1,26 @@
+{% macro render_table(name, relation) %}
+    {% set n = relation|length %}
+        <div>
+            <p>
+                <b>{{name}} </b>
+            </p>
+            <table>
+                <tr>
+                    {% for data in relation.dtypes.index %}
+                    <th>{{data}}</th>
+                    {% endfor %}
+                </tr>
+                <tbody>
+                    {% for i in range(n) %}
+                    <tr>
+                        {% for data in relation.dtypes.index %}
+                        <td> 
+                            {{ relation.loc[i, data] }}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endmacro %}

@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title> Дамп базы данных </title>
+        {% from "table_macros.html" import render_table %}
+        {% from "input_macros.html" import render_input %}
+    </head>
+    <body>
+        {{render_input("date", begin_date)}}
+        {{render_input("date", end_date)}}
+        {{render_table("Данные", df_request)}}
+    </body>
+</html>
